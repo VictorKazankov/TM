@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.sikuli.script.Screen;
 
 /**
@@ -10,8 +11,10 @@ public class DriverHelper {
     private static Screen screen;
 
     public DriverHelper(){
-        driver = new InternetExplorerDriver();
-        //driver = new FirefoxDriver();
+        DesiredCapabilities ieCapabilities = DesiredCapabilities.internetExplorer();
+        //clean all sessions
+        ieCapabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+        driver = new InternetExplorerDriver(ieCapabilities);
         driver.manage().window().maximize();
         driver.get("http://192.168.17.81/TM/TM.jsp");
     }

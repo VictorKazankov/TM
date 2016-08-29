@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 /**
  * Created by v_kazankov on 09.08.2016.
  */
-public class Authorization extends TestBase{
+public class AddNewMedia extends TestBase{
 
     @Test(description = "Login to home page of moduls")
     public void testLoginUser() throws FindFailed {
@@ -15,6 +15,11 @@ public class Authorization extends TestBase{
         new TranslateCyrillic(password);
         Assert.assertTrue(app.getLoginElements().CorrectLoginAndPassvord(login, password));
 
+    }
+
+    @Test()
+    public void testOpenTree() throws FindFailed {
+        Assert.assertTrue(app.getTreeElements().OpenGPAfolder());
     }
 
 }

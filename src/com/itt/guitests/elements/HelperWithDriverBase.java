@@ -29,4 +29,13 @@ public class HelperWithDriverBase {
     protected void typeToField(Pattern pattern, String value) throws FindFailed {
         page.type(pattern, value);
     }
+
+    protected void waitAndDoubleClick(Pattern pattern) throws FindFailed {
+        page.wait(pattern, 10);
+        page.doubleClick(pattern);
+    }
+
+    protected void waitLocator(Pattern label) throws FindFailed {
+        page.wait(label, 10);
+    }
 }

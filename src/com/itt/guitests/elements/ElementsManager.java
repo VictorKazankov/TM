@@ -8,6 +8,7 @@ public class ElementsManager {
 
     private DriverHelper driverHelper;
     public LoginElements loginElements;
+    public TreeElements treeElements;
 
     public ElementsManager(){
         driverHelper = new DriverHelper();
@@ -32,5 +33,13 @@ public class ElementsManager {
             loginElements = new LoginElements(this);
         }
         return loginElements;
+    }
+
+    public TreeElements getTreeElements() throws FindFailed {
+
+        if (treeElements == null){
+            treeElements = new TreeElements(this);
+        }
+        return treeElements;
     }
 }
