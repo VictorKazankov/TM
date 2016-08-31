@@ -24,8 +24,17 @@ public class AddNewMedia extends TestBase{
 
     @Test(description = "Add and Save new media",priority = 2)
     public void testAddAndSaveNewMediaElement() throws FindFailed {
+        String pathFile1 = "D:\\ProjectInfo\\TM\\resourses\\ImageTest1.jpg";
+        //String pathFile2 = "D:\\ProjectInfo\\TM\\resourses\\ImageTest2.jpg";
+        new TranslateCyrillic(pathFile1);
         Assert.assertTrue(app.getTreeElements().AddElementToTable());
-        Assert.assertTrue(app.getTreeElements().AddImage());
+        Assert.assertTrue(app.getTreeElements().AddImage(pathFile1));
     }
+
+    @Test(description = "Delete media", priority = 3)
+    public void testDeleteMediaElement() throws FindFailed{
+        Assert.assertTrue(app.getTreeElements().DeleteElementFromTable());
+    }
+
 
 }

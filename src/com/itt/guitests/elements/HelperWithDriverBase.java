@@ -4,6 +4,7 @@
 
 import org.openqa.selenium.WebDriver;
 import org.sikuli.script.FindFailed;
+import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Region;
 
@@ -37,5 +38,13 @@ public class HelperWithDriverBase {
 
     protected void waitLocator(Pattern label) throws FindFailed {
         page.wait(label, 10);
+    }
+
+    protected boolean waitVanishLocator(Pattern pattern) {
+        return page.waitVanish(pattern);
+    }
+
+    protected Match existLocator(Pattern pattern) {
+        return page.exists(pattern);
     }
 }
